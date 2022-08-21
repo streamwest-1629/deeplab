@@ -3,6 +3,7 @@ jupyterlab==3.1.19
 jupyterlab-lsp
 jupytext
 jupyterlab-git
+jedi-language-server
 jupyterlab_code_formatter
 ipython-sql
 bash_kernel

@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   app:
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    image: ghcr.io/streamwest-1629/deeplab:pytorch-${DEVCONTAINER_TAG:-main}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: ghcr.io/streamwest-1629/deeplab:pytorch-${DEVCONTAINER_TAG:-main}
 
     volumes:
       # Forwards the local Docker socket to the container.
