@@ -1,0 +1,3 @@
+# Specify at least 1 USER command in Dockerfile with non-root user as argument
+# devcontainer動かすために non-root user が必要
+DS002
