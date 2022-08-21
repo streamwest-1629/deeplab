@@ -47,9 +47,9 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
           flavor: |
             latest=true
-            prefix=devcontainer-,onlatest=true
+            prefix=pytorch-,onlatest=true
           tags: |
-            type=sha,format=long
+            type=raw,value=pytorch-${{ github.sha }}
             type=raw,value=${{ env.BRANCH_TAG }}
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
@@ -75,7 +75,7 @@ jobs:
       - name: Trivy scan
         uses: aquasecurity/trivy-action@0.7.1
         with: 
-          image-ref: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:${{ github.sha }}
+          image-ref: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:pytorch-${{ github.sha }}
           format: sarif
           output: trivy-results.sarif
           severity: CRITICAL,HIGH
