@@ -10,7 +10,7 @@ on:
 jobs:
   to-private:
     name: Private
-    if: ${{ github.repository == "StreamWest-1629/deeplab" }}
+    if: ${{ github.repository == 'StreamWest-1629/deeplab' }}
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -22,7 +22,7 @@ jobs:
       - name: Compare
         run: git diff HEAD..private/main
       - name: Merge
-        if: ${{ github.event_name == "push" }}
+        if: ${{ github.event_name == 'push' }}
         run: |
           git switch private/main \
           git merge origin/main \
