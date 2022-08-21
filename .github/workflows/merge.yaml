@@ -22,10 +22,12 @@ jobs:
           git remote add private https://github.com/StreamWest-1629/deeplab.private.git
           git remote
       - name: Compare
-        run: git diff private/main..HEAD
+        if: ${{ github.event_name == 'pull_request' }}
+        run: git diff private/main..${{ github.head_ref }}
       - name: Merge
         if: ${{ github.event_name == 'push' }}
         run: |
+          git diff private/main..origin/main
           git switch private/main \
           git merge origin/main \
           git config user.name "github-actions[bot]" \
