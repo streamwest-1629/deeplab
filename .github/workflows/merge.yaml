@@ -25,4 +25,7 @@ jobs:
         if: ${{ github.event_name == "push" }}
         run: |
           git switch private/main \
-          git merge origin/main
+          git merge origin/main \
+          git config user.name "github-actions[bot]" \
+          git config user.email "github-actions[bot]@users.noreply.github.com" \
+          git push
