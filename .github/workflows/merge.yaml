@@ -23,7 +23,7 @@ jobs:
           git remote
       - name: Compare
         if: ${{ github.event_name == 'pull_request' }}
-        run: git diff private/main..${{ github.head_ref }}
+        run: git diff private/main..origin/${{ github.head_ref }}
       - name: Merge
         if: ${{ github.event_name == 'push' }}
         run: |
