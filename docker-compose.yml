@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: ghcr.io/streamwest-1629/deeplab:devcontainer-${DEVCONTAINER_TAG:-main}
+
+    volumes:
+      # Forwards the local Docker socket to the container.
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - .:/workspace:cached
+      - ~/.git-credentials:/home/vscode/.creds/.git-credentials:ro
+      - ~/.aws:/home/vscode/.aws:ro
+    entrypoint: /workspace/scripts/start.sh
+    # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
+    environment:
+      DEEPLAB_BUCKETNAME: deeplab-fileshareing
+      AWS_PROFILE: ${AWS_PROFILE}
+      SHELL: /bin/bash
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    privileged: true
+    ports:
+      - 5515:5515
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ "gpu" ]
+    tty: true
+    # Uncomment the next line to use a non-root user for all processes.
+    user: vscode
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
