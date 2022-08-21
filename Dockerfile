@@ -13,6 +13,7 @@ ENV DEBIAN_FRONTEND=nointeractive \
 ARG username=vscode
 ARG useruid=1000
 ARG usergid=${useruid}
+ARG requirements_txt=pytorch.requirements.txt
 
 RUN \
     # Install build modules
@@ -76,21 +77,13 @@ RUN \
     chmod +x /usr/local/bin/goofys && \
     apt-get clean
 
+COPY requirements/${requirements_txt} .
+
 RUN \
     --mount=type=cache,target=/root/.cache/pip \
-    python3 -m pip install \
-    jupyterlab==3.1.19 \
-    jupyterlab-lsp \
-    jupytext \
-    jupyterlab-git \
-    jupyterlab_code_formatter \
-    ipython-sql \
-    bash_kernel \
-    yapf \
-    isort \
-    numpy \
-    pandas \
-    matplotlib && \
+    python3 -m pip install -r ${requirements_txt} \
+    --extra-index-url https://download.pytorch.org/whl/cu113 \
+    && \
     # Setting jupyter lab configurations
     python3 -m jupyter lab build --dev-build=False && \
     python3 -m bash_kernel.install && \

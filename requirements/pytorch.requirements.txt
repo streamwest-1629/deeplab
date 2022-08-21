@@ -1,0 +1,18 @@
+# Jupyter packages
+jupyterlab==3.1.19
+jupyterlab-lsp
+jupytext
+jupyterlab-git
+jupyterlab_code_formatter
+ipython-sql
+bash_kernel
+yapf
+isort
+numpy
+pandas
+matplotlib
+
+# Pytorch packages
+torch
+torchvision
+torchaudio
