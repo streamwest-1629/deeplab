@@ -59,8 +59,8 @@ jobs:
           platforms: linux/amd64
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTY }}/streamwest-1629/deeplab:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTY }}/streamwest-1629/deeplab:buildcache,mode=max
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/streamwest-1629/deeplab:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/streamwest-1629/deeplab:buildcache,mode=max
   scan_trivy_pytorch:
     name: Trivy scan pytorch image
     runs-on: ubuntu-latest
