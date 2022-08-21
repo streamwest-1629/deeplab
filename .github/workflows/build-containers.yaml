@@ -8,12 +8,19 @@ on:
       - .github/workflows/build-containers.yaml
       - Dockerfile
       - requirements/*
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-containers.yaml
+      - Dockerfile
+      - requirements/*
 env:
   REGISTRY: ghcr.io
   BRANCH_TAG: latest
 jobs:
-  build_devcontainer:
-    name: Build devontainer's image
+  build_pytorch:
+    name: Build pytorch image
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -52,8 +59,8 @@ jobs:
           platforms: linux/amd64
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=registry,ref=${{ env.REGISTY }}/${{ github.repository }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTY }}/${{ github.repository }}:buildcache,mode=max
       - name: Trivy scan
         uses: aquasecurity/trivy-action@0.7.1
         with: 
