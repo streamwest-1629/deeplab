@@ -61,6 +61,15 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=registry,ref=${{ env.REGISTY }}/${{ github.repository }}:buildcache
           cache-to: type=registry,ref=${{ env.REGISTY }}/${{ github.repository }}:buildcache,mode=max
+  scan_trivy_pytorch:
+    name: Trivy scan pytorch image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
       - name: Trivy scan
         uses: aquasecurity/trivy-action@0.7.1
         with: 
@@ -78,5 +87,3 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: trivy-results.sarif
-     
-          
