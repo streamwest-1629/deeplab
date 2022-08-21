@@ -11,8 +11,13 @@ isort
 numpy
 pandas
 matplotlib
+jupyter-contrib-nbextensions
+jupyter-nbextensions-configurator
 
 # Pytorch packages
 torch
 torchvision
 torchaudio
+
+# Model packages
+dalle2-pytorch
