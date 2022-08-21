@@ -49,7 +49,7 @@ jobs:
             latest=true
             prefix=pytorch-,onlatest=true
           tags: |
-            type=raw,value=pytorch-${{ github.sha }}
+            type=raw,value=${{ github.sha }}
             type=raw,value=${{ env.BRANCH_TAG }}
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
