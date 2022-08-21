@@ -18,9 +18,11 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
       - name: Add private
-        run: git remote add private https://github.com/StreamWest-1629/deeplab.private.git
+        run: |
+          git remote add private https://github.com/StreamWest-1629/deeplab.private.git
+          git remote
       - name: Compare
-        run: git diff HEAD..private/main
+        run: git diff private/main..HEAD
       - name: Merge
         if: ${{ github.event_name == 'push' }}
         run: |
