@@ -1,0 +1,5 @@
+[submodule "private"]
+	path = private
+	branch = main
+	ignore = all
+	url = https://github.com/streamwest-1629/deeplab.private
