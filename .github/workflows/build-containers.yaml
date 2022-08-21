@@ -17,6 +17,7 @@ on:
       - requirements/*
 env:
   REGISTRY: ghcr.io
+  REPO_NAME: streamwest-1629/deeplab
   BRANCH_TAG: latest
 jobs:
   build_pytorch:
@@ -59,8 +60,8 @@ jobs:
           platforms: linux/amd64
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/streamwest-1629/deeplab:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/streamwest-1629/deeplab:buildcache,mode=max
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.REPO_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.REPO_NAME }}:buildcache,mode=max
   scan_trivy_pytorch:
     name: Trivy scan pytorch image
     runs-on: ubuntu-latest
@@ -74,7 +75,7 @@ jobs:
       - name: Trivy scan
         uses: aquasecurity/trivy-action@0.7.1
         with: 
-          image-ref: ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}
+          image-ref: ${{ env.REGISTRY }}/${{ env.REPO_NAME }}:${{ github.sha }}
           format: sarif
           output: trivy-results.sarif
           severity: CRITICAL,HIGH
