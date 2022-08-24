@@ -89,4 +89,8 @@ RUN \
     # Setting jupyter lab configurations
     python3 -m jupyter lab build --dev-build=False && \
     python3 -m bash_kernel.install && \
+    # python3 -m jupyter labextension install jupyterlab-nvdashboard && \
+    # python3 -m jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
+    # python3 -m jupyter labextension install @bokeh/jupyter_bokeh && \
+    # python3 -m jupyter labextension install @lckr/jupyterlab_variableinspector && \
     echo ""
