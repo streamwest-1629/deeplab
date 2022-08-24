@@ -15,8 +15,20 @@ numpy
 pandas
 matplotlib
 JLDracula
+jupyterlab_latex
+# jupyterlab_tensorboard
+ipywidgets
+ipydatagrid
+stickyland
+sidecar
+# jupyterlab-spreadsheet
+# jupyterlab_filetree
+# jupyterlab-nvdashboard
+jupyter_bokeh
+# lckr-jupyterlab-variableinspector
 
 # Pytorch packages
 torch
 torchvision
 torchaudio
+tensorboard

@@ -3,6 +3,9 @@
 JUPYTER_DIR=/home/vscode/.jupyter
 S3_MOUNT=/mnt/s3
 
+rm -r $JUPYTER_DIR
+rm -r $S3_MOUNT
+
 mkdir -p $JUPYTER_DIR
 mkdir -p $S3_MOUNT
 
@@ -23,6 +26,7 @@ goofys -f --cheap \
     # launch jupyter lab
     python3 -m jupyter lab \
         --ContentsManager.allow_hidden=True \
+        --Completer.use_jedi=False \
         --port 5515 --ip=0.0.0.0 --allow-root \
         --notebook-dir=/workspace
 )
