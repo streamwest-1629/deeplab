@@ -44,6 +44,10 @@ RUN \
     s3fs \
     fuse-emulator-utils \
     fuse \
+    pkg-config \
+    libcairo2-dev \
+    libjpeg-dev \
+    libgif-dev \
     dirmngr \
     apt-transport-https \
     lsb-release \
