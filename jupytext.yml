@@ -1,1 +1,1 @@
-formats: "notebooks//ipynb,docs//md:markdown,py:percent"
+formats: "@/ipynb,docs//md:markdown,py:percent"
