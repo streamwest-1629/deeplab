@@ -1,0 +1,8 @@
+{
+    "dependencies": {
+        "onchange": "^7.1.0"
+    },
+    "scripts": {
+        "start": "onchange -d 2000 '**/notebooks/*.ipynb' -- jupytext --set-formats 'notebooks//ipynb,docs//md:markdown,py:percent' {{file}}"
+    }
+}
