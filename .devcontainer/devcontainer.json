@@ -31,6 +31,14 @@
 			}
 		}
 	},
+	"extensions": [
+		"emeraldwalk.RunOnSave",
+		"ms-toolsai.jupyter",
+		"ms-python.python",
+		"ms-python.gather",
+		"eamodio.gitlens",
+		"mhutchie.git-graph"
+	],
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
 	"service": "app",
