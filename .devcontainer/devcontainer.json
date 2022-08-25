@@ -24,7 +24,7 @@
 					"commands": [
 						{
 							"match": ".(py|ipynb|md)$",
-							"cmd": "jupytext --set-formats 'notebooks//ipynb,docs//md:markdown,py:percent' ${file}"
+							"cmd": "jupytext --set-formats '@/ipynb,docs//md:markdown,py:percent' ${file}"
 						}
 					]
 				}
