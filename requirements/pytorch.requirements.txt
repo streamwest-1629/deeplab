@@ -27,6 +27,7 @@ sidecar
 jupyter_bokeh
 # lckr-jupyterlab-variableinspector
 tensorboard
+scipy
 
 # Pytorch packages
 torch
@@ -37,3 +38,4 @@ torchaudio
 transformers
 diffusers
 invisible-watermark
+ftfy
