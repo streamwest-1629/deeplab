@@ -12,7 +12,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       # Update this to wherever you want VS Code to mount the folder of your project
       - .:/workspace:cached
-      - ~/.git-credentials:/home/vscode/.git-credentials:ro
+      - ~/.git-credentials:/home/vscode/.git-credentials:rw
       - ~/.aws:/home/vscode/.aws:ro
     command: /workspace/scripts/start.sh
     # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
