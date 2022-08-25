@@ -1,4 +1,4 @@
-*.ipynb
+@*.ipynb
 *.env
 .ipynb_checkpoints
 .virtual_documents

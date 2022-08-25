@@ -3,6 +3,6 @@
         "onchange": "^7.1.0"
     },
     "scripts": {
-        "start": "onchange -d 2000 '**/notebooks/*.ipynb' -- jupytext --set-formats 'notebooks//ipynb,docs//md:markdown,py:percent' {{file}}"
+        "start": "onchange -d 2000 '**/@*.ipynb' -e '**/.ipynb*/*.ipynb' -- jupytext --set-formats '@/ipynb,docs//md:markdown,py:percent' {{file}}"
     }
 }
