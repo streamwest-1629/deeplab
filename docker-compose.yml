@@ -14,7 +14,7 @@ services:
       - .:/workspace:cached
       - ~/.git-credentials:/home/vscode/.git-credentials:ro
       - ~/.aws:/home/vscode/.aws:ro
-    entrypoint: /workspace/scripts/start.sh
+    command: /workspace/scripts/start.sh
     # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
     environment:
       DEEPLAB_BUCKETNAME: deeplab-fileshareing
