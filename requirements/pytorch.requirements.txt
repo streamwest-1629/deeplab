@@ -26,9 +26,16 @@ sidecar
 # jupyterlab-nvdashboard
 jupyter_bokeh
 # lckr-jupyterlab-variableinspector
+tensorboard
+scipy
 
 # Pytorch packages
 torch
 torchvision
 torchaudio
-tensorboard
+
+# ML packages
+transformers
+diffusers
+invisible-watermark
+ftfy

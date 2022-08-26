@@ -23,11 +23,23 @@
 				"emeraldwalk.runonsave": {
 					"commands": [
 						{
-							"match": ".(py|ipynb|md)$",
+							"match": ".(py|md)$",
 							"cmd": "jupytext --set-formats '@/ipynb,docs//md:markdown,py:percent' ${file}"
 						}
 					]
-				}
+				},
+				"jupyter.widgetScriptSources": [
+					"jsdelivr.com",
+					"unpkg.com"
+				],
+				"python.analysis.autoImportCompletions": true,
+				"python.linting.enabled": true,
+				"python.linting.mypyEnabled": true,
+				"python.formatting.provider": "yapf",
+				"python.formatting.yapfArgs": [
+					"--style=google"
+				],
+				"editor.formatOnSave": true
 			}
 		}
 	},
