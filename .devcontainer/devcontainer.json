@@ -32,7 +32,6 @@
 					"jsdelivr.com",
 					"unpkg.com"
 				],
-				"python.pythonPath": "/workspace/.devcontainer/venv/bin/python",
 				"python.venvFolders": [
 					".devcontainer-venv"
 				],
