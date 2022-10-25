@@ -12,6 +12,9 @@ mkdir -p $S3_MOUNT
 git config --global credential.helper "store --file /home/vscode/.git-credentials"
 git config --global --add safe.directory '*'
 
+/workspace/.devcontainer-venv/bin/python -m pip install -r "/workspace/requirements/pytorch.requirements.lock" \
+    --extra-index-url https://download.pytorch.org/whl/cu113
+
 goofys -f --cheap \
     --stat-cache-ttl 30m \
     ${DEEPLAB_BUCKETNAME}:.jupyter/ $JUPYTER_DIR &
