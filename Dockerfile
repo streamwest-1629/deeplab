@@ -41,6 +41,7 @@ RUN \
     unzip \
     python3 \
     python3-pip \
+    python3-venv \
     s3fs \
     fuse-emulator-utils \
     fuse \
@@ -82,20 +83,20 @@ RUN \
     chmod +x /usr/local/bin/goofys && \
     apt-get clean
 
-COPY requirements/${requirements_txt} .
+# COPY requirements/${requirements_txt} .
 
-USER ${username}
-ENV PATH=${PATH}:/home/${username}/.local/bin
-RUN \
-    --mount=type=cache,target=/home/{username}/.cache/pip \
-    python3 -m pip install -r ${requirements_txt} \
-    --extra-index-url https://download.pytorch.org/whl/cu113 \
-    && \
-    # Setting jupyter lab configurations
-    python3 -m jupyter lab build --dev-build=False && \
-    python3 -m bash_kernel.install && \
-    # python3 -m jupyter labextension install jupyterlab-nvdashboard && \
-    # python3 -m jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-    # python3 -m jupyter labextension install @bokeh/jupyter_bokeh && \
-    # python3 -m jupyter labextension install @lckr/jupyterlab_variableinspector && \
-    echo ""
+# USER ${username}
+# ENV PATH=${PATH}:/home/${username}/.local/bin
+# RUN \
+#     --mount=type=cache,target=/home/{username}/.cache/pip \
+#     python3 -m pip install -r ${requirements_txt} \
+#     --extra-index-url https://download.pytorch.org/whl/cu113 \
+#     && \
+#     # Setting jupyter lab configurations
+#     python3 -m jupyter lab build --dev-build=False && \
+#     python3 -m bash_kernel.install && \
+#     # python3 -m jupyter labextension install jupyterlab-nvdashboard && \
+#     # python3 -m jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
+#     # python3 -m jupyter labextension install @bokeh/jupyter_bokeh && \
+#     # python3 -m jupyter labextension install @lckr/jupyterlab_variableinspector && \
+#     echo ""
